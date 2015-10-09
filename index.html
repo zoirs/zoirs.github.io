@@ -1,0 +1,46 @@
+.<!DOCTYPE HTML>
+    <html>
+    <head>
+      <title>rectExample</title>
+    </head>
+    <body>
+      <canvas id='canvas'>Обновите браузер</canvas>
+      <script>
+      var example = document.getElementById("canvas");
+      var ctx = example.getContext('2d');
+      canvas.width  = 640;
+      canvas.height = 480;
+      width  = 640;
+      height = 480;
+      var startLong=80,lastLong=5 , x=width/2,x1=width/2,y=height,y1=height-startLong,alfa=Math.PI/2,i=0;
+ctx.fillStyle = "#8fff8f";
+f(x,y,x1,y1,startLong,alfa);
+
+function f(x,y,x1,y1,startLong,alfa){
+if (startLong>7){
+	 drow(x,y,x1,y1,alfa,startLong);
+     x=x1;
+     y=y1;
+	 startLong=startLong* (Math.random()*(0.9 - 0.7) + 0.7);
+  f(x,y,x+Math.round(startLong*Math.cos(alfa)),y - Math.round( startLong*Math.sin(alfa)),startLong,alfa + Math.random());// угол наклона
+     f(x,y,Math.round(x + startLong*Math.cos(alfa)),y - Math.round(startLong*Math.sin(alfa)),startLong,alfa - Math.PI/8);// угол наклона
+}
+
+}
+function drow(x,y,x1,y1,alfa,startLong){
+  ctx.beginPath();
+ctx.moveTo(x,y);
+ctx.lineTo(x1,y1);
+  ctx.lineWidth=(startLong/8-0.8);
+  ctx.lineJoin='round';
+  ctx.stroke();
+}
+
+  ctx.stroke();
+
+
+ </script>
+
+  </body>
+</html>
+
